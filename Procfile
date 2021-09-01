@@ -1,1 +1,1 @@
-web: ./build/install/javalin-todos/bin/javalin-todos
+web: java -jar build/libs/javalin-todos.jar
