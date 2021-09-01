@@ -12,4 +12,4 @@ fun decodeJws(token: String): DecodedJWT {
     return JWT.require(algorithmHS).build().verify(token)
 }
 
-private var algorithmHS = Algorithm.HMAC256("very_secret")
+private var algorithmHS = Algorithm.HMAC256(System.getenv("JWT_SECRET"))

@@ -6,9 +6,7 @@ object Database {
 
     private fun connect(): Connection {
         return DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/todo",
-            "todo",
-            "+todo+"
+            System.getenv("DATABASE_URL")
         )
     }
 

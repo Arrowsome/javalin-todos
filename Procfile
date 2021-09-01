@@ -1,0 +1,1 @@
+web: ./build/install/javalin-todos/bin/javalin-todos

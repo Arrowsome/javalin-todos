@@ -6,7 +6,13 @@ import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.*
 
 fun main() {
-    val app = Javalin.create { }.start(8080)
+    val app = Javalin.create { }.start(System.getenv("PORT").toInt())
+    Database.run("CREATE TABLE IF NOT EXISTS user (id int auto_increment primary key, email varchar(50), password varchar(50));") {
+        execute()
+    }
+    Database.run("CREATE TABLE IF NOT EXISTS task (id int auto_increment primary key, title varchar(255), user_id int);") {
+        execute()
+    }
     app.get("/", controller = {
         val name = queryParam("name") ?: "Friend!"
         result("Hello, $name!")

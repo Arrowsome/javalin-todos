@@ -17,4 +17,9 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-core:2.12.5")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.10.5")
     implementation("com.auth0:java-jwt:3.18.1")
+    implementation("org.postgresql:postgresql:42.2.23")
+}
+
+tasks.create("stage") {
+    dependsOn("installDist")
 }
